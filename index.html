@@ -1,608 +1,192 @@
-<!DOCTYPE html>
-<html lang="ru">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Иван & Ксения | Свадьба 04.07.2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #D4B78C;
-            --primary-dark: #B69B76;
-            --secondary: #2C3E50;
-            --accent: #F9E5D2;
-            --text-dark: #2C3E50;
-            --text-light: #FFFFFF;
-            --background: #FDFBF9;
-            --transition: all 0.4s ease;
-        }
+@font-face {
+    font-family: 'Dobrozrachniy';
+    src: url('fonts/Dobrozrachniy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background: #fff;
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+.invite-bg {
+    background: #fff url('side.png') no-repeat center right;
+    background-size: contain;
+    width: 100%;
+}
+.invite-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 24px 40px 24px;
+    /* background: rgba(255,255,255,0.92); */
+    /* box-shadow: 0 8px 32px rgba(0,0,0,0.08); */
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 7vh;
+    margin-bottom: 14vh;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.couple-names {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: #2d2d2d;
+    font-family: 'Dobrozrachniy', serif;
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--background);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+@media (min-width: 600px) {
+    .invite-container {
+        padding: 80px 48px 60px 48px;
+    }
+    .couple-names {
+        font-size: 3.5rem;
+    }
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+@media (min-width: 900px) {
+    body {
+        background-size: 45% auto;
+    }
+    .invite-container {
+        max-width: 700px;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+    .couple-names {
+        font-size: 4.5rem;
+    }
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.6)),
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            position: relative;
-        }
+/* Optional: subtle fade for background image on mobile */
+@media (max-width: 599px) {
+    body {
+        background-size: 90% auto;
+        background-position: center bottom;
+    }
+}
 
-        .hero-content {
-            max-width: 800px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+/* Example for centering the invitation vertically */
+html, body {
+    height: 100%;
+}
 
-        .couple-names {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        .wedding-date {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
+.main-content {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .divider {
-            width: 150px;
-            height: 2px;
-            background: var(--text-light);
-            margin: 30px auto;
-        }
+/* Decorative divider */
+.divider {
+    width: 80px;
+    height: 2px;
+    background: #e0c3a3;
+    margin: 24px auto 32px auto;
+    border-radius: 2px;
+    opacity: 0.7;
+}
 
-        /* Countdown Section */
-        .countdown {
-            padding: 100px 0;
-            background: var(--background);
-            text-align: center;
-        }
+/* Example for the invitation text */
+.invite-text {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
 
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .countdown-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            min-width: 150px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .countdown-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .countdown-label {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 10px;
-        }
-
-        /* Schedule Section */
-        .schedule {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--background), var(--accent));
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--secondary);
-        }
-
-        .timeline {
-            max-width: 800px;
-            margin: 50px auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--primary);
-        }
-
-        .timeline-item {
-            margin-bottom: 50px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            position: relative;
-        }
-
-        .timeline-time {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-
-        /* RSVP Section */
-        .rsvp {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--accent), var(--background));
-        }
-
-        .rsvp-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            color: var(--secondary);
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .rsvp-description {
-            font-size: 1.1rem;
-            color: var(--primary-dark);
-            text-align: center;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .submit-btn {
-            background: var(--primary-dark);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: block;
-            margin: 0 auto;
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 100px 0;
-            background: var(--background);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .gallery-item {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: var(--text-light);
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .couple-names {
-                font-size: 3rem;
-            }
-
-            .countdown-container {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-
-            .countdown-item {
-                min-width: 120px;
-            }
-
-            .timeline::before {
-                left: 0;
-            }
-
-            .timeline-content {
-                width: 90%;
-                margin-left: auto;
-            }
-        }
-
-        /* Message Styles */
-        .message {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
-            text-align: center;
-            display: none;
-        }
-
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+@media (max-width: 400px) {
+    .invite-container {
+        padding: 32px 6px 24px 6px;
+    }
+    .couple-names {
+        font-size: 2rem;
+    }
+}
+    .schedule-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('ramka.png') center center/contain no-repeat;
+    background-color: rgba(255,255,255,0.85);
+    position: relative;
+    margin-top: 0;
+    padding: 80px 0;
+}
+.schedule-content {
+    /* background: rgba(255,255,255,0.85); */
+    /* box-shadow: 0 4px 24px rgba(0,0,0,0.06); */
+    border-radius: 24px;
+    padding: 48px 32px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+.schedule-content h2 {
+    font-family: 'Dobrozrachniy', serif;
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+    color: #2d2d2d;
+}
+.schedule-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.15rem;
+    color: #444;
+}
+.schedule-content li {
+    margin-bottom: 14px;
+}
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="couple-names">Иван & Ксения</h1>
-            <p class="wedding-date">04 ИЮЛЯ 2026</p>
-            <div class="divider"></div>
-            <p>С радостью приглашаем вас разделить с нами особенный момент нашей жизни</p>
-        </div>
-    </section>
-
-    <!-- Countdown Section -->
-    <section class="countdown">
-        <div class="container">
-            <h2 class="section-title">До свадьбы осталось</h2>
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">00</div>
-                    <div class="countdown-label">Дней</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">Часов</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">Минут</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">Секунд</div>
+    <div class="invite-bg">
+        <div class="main-content">
+            <div class="invite-container">
+                <div class="couple-names">Иван и Ксения</div>
+                <div class="divider"></div>
+                <div class="invite-text">
+                    You are cordially invited to celebrate our wedding.<br>
+                    <strong>Date:</strong> June 15, 2024<br>
+                    <strong>Location:</strong> Rosewood Gardens, 123 Main St.<br>
+                    <br>
+                    We look forward to sharing this special day with you!
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section class="schedule">
-        <div class="container">
-            <h2 class="section-title">Программа Дня</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-time">15:00</div>
-                        <h3>Церемония Бракосочетания</h3>
-                        <p>Дворец бракосочетания</p>
-                        <p><i class="fas fa-map-marker-alt"></i> ул. Ленина, 25</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-time">16:30</div>
-                        <h3>Фотосессия</h3>
-                        <p>Парк "Александровский сад"</p>
-                        <p><i class="fas fa-camera"></i> Сбор у главного входа</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-time">18:00</div>
-                        <h3>Праздничный Банкет</h3>
-                        <p>Ресторан "Панорама"</p>
-                        <p><i class="fas fa-map-marker-alt"></i> ул. Пушкина, 10</p>
-                    </div>
-                </div>
-            </div>
+    </div>
+    <div class="schedule-section">
+        <div class="schedule-content">
+            <h2>Свадебная программа</h2>
+            <ul>
+                <li><strong>Сбор гостей:</strong> 15 июня 2024, 15:00</li>
+                <li><strong>Место:</strong> Rosewood Gardens, 123 Main St.</li>
+                <li><strong>Церемония:</strong> 16:00</li>
+                <li><strong>Праздничный ужин:</strong> 17:00</li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 class="section-title">Наши Фотографии</h2>
-            <div class="gallery-grid">
-                <!-- Replace src attributes with your actual photo URLs -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="Фото 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" alt="Фото 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" alt="Фото 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6" alt="Фото 4">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP Section -->
-    <section class="section rsvp-section">
-        <div class="container">
-            <h2 class="section-title">Подтвердите Участие</h2>
-            
-            <div class="rsvp-container">
-                <div class="form-container">
-                    <form id="rsvp-form">
-                        <div class="rsvp-title">Мы будем рады видеть вас!</div>
-                        <div class="rsvp-description">Пожалуйста, ответьте до 1 июня 2026 года</div>
-                        
-                        <div class="form-group">
-                            <label for="name">Ваше Имя *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="attendance">Вы Придете? *</label>
-                            <select id="attendance" name="attendance" required>
-                                <option value="">Пожалуйста, выберите</option>
-                                <option value="Да, с удовольствием!">Да, с удовольствием!</option>
-                                <option value="К сожалению, не смогу">К сожалению, не смогу</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="guests">Количество гостей (включая вас) *</label>
-                            <select id="guests" name="guests" required>
-                                <option value="">Выберите количество</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5+">5+ (уточните в комментариях)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="dietary">Особые требования к питанию</label>
-                            <input type="text" id="dietary" name="dietary" placeholder="Вегетарианское, аллергии и т.д.">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Ваши пожелания</label>
-                            <textarea id="message" name="message" placeholder="Напишите ваши пожелания..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Подтвердить участие</button>
-                        <div id="form-message" class="form-message"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Иван & Ксения</h3>
-                <p>04.07.2026</p>
-                <p>Ждем вас на нашем празднике!</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Countdown Timer
-        const weddingDate = new Date('2026-07-04T15:00:00').getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeLeft = weddingDate - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Form Submission to Google Sheets via Google Apps Script
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправка...';
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                attendance: document.getElementById('attendance').value,
-                guests: document.getElementById('guests').value,
-                dietary: document.getElementById('dietary').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toLocaleString('ru-RU')
-            };
-            
-            // Send data via Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbxUQHMhUnY7EPZbhifRMH790SGCqeCGOyJ6jvZF-lKR9wCAk6d2izENBs75h49DNo9BxQ/exec', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-				redirect: 'follow',
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8'
-                }
-            })
-            .then(response => response.text())
-            .then(data => {
-                let result = false;
-                try {
-                    result = JSON.parse(data).result === 'success';
-                } catch (e) {
-                    result = false;
-                }
-                if (result) {
-                    showMessage('Спасибо! Ваш ответ успешно отправлен.', 'success');
-                    document.getElementById('rsvp-form').reset();
-                } else {
-                    showMessage('Произошла ошибка при отправке.', 'error');
-                }
-            })
-            .catch(error => {
-                showMessage('Ошибка сети: ' + error.message, 'error');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Подтвердить участие';
-            });
-        });
-        
-        // Show form message
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('form-message');
-            messageDiv.textContent = text;
-            messageDiv.className = 'form-message ' + type;
-            messageDiv.style.display = 'block';
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 5000);
-        }
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.event-card, .gallery-item').forEach(item => {
-            observer.observe(item);
-        });
-    </script>
+    </div>
 </body>
 </html>
-
