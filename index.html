@@ -6,11 +6,101 @@
     <title>Wedding Invitation</title>
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
     <style>
+/* === FONT FACES === */
 @font-face {
     font-family: 'Dobrozrachniy';
     src: url('fonts/Dobrozrachniy.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'TD Elena 2021';
+    src: url('fonts/Mefodievich.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'VelesByDmitryElit';
+    src: url('fonts/velesbydmitryelit.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BalkaraFreeCondensed';
+    src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bukvica';
+    src: url('fonts/bukvica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Svetozar';
+    src: url('fonts/Svetozar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Vitez';
+    src: url('fonts/Vitez.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mefodievich';
+    src: url('fonts/Mefodievich.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rurintania';
+    src: url('fonts/ofont.ru_Rurintania.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Zing';
+    src: url('fonts/Zing.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'WonderGardene';
+    src: url('fonts/WonderGardene.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SaintAmoure';
+    src: url('fonts/SaintAmoure.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RotondaC';
+    src: url('fonts/RotondaC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rotonda';
+    src: url('fonts/Rotonda.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CormorantInfant-Light';
+    src: url('fonts/CormorantInfant-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* === BASE STYLES === */
+html, body {
+    height: 100%;
 }
 body {
     background: #fff;
@@ -19,135 +109,129 @@ body {
     color: #222;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
-.invite-bg {
-    background: #fff url('side.png') no-repeat center right;
-    background-size: contain;
+
+.main-content {
     width: 100%;
 }
+
+/* === INVITE SECTION === */
+.invite-bg {
+    background: #fff;
+    background-image: url('side.png'), url('side-x.png');
+    background-position: right center, left center;
+    background-repeat: repeat-y, repeat-y;
+    background-size: 30%, 30%;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .invite-container {
     max-width: 700px;
     margin: 0 auto;
     padding: 60px 24px 40px 24px;
-    /* background: rgba(255,255,255,0.92); */
-    /* box-shadow: 0 8px 32px rgba(0,0,0,0.08); */
     border-radius: 24px;
-    text-align: center;
+    text-align: left;
     position: relative;
     z-index: 2;
     margin-top: 7vh;
-    margin-bottom: 14vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: none;
 }
 
 .couple-names {
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-family: 'BalkaraFreeCondensed', serif;
+    font-size: 2rem;
+    font-weight: 400;
     letter-spacing: 2px;
     margin-bottom: 18px;
-    color: #2d2d2d;
-    font-family: 'Dobrozrachniy', serif;
+    display: block;
+    color: #000000;
+    text-align: center; /* Center all names */
+    line-height: 1; /* Add this to control vertical spacing */
 }
 
-@media (min-width: 600px) {
-    .invite-container {
-        padding: 80px 48px 60px 48px;
-    }
-    .couple-names {
-        font-size: 3.5rem;
-    }
+.name-part {
+    display: block;
+    width: 100%;
+    margin: 0;
+    line-height: 0.8; /* Pulls lines closer together */
 }
 
-@media (min-width: 900px) {
-    body {
-        background-size: 45% auto;
-    }
-    .invite-container {
-        max-width: 700px;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-    }
-    .couple-names {
-        font-size: 4.5rem;
-    }
+.first-letter {
+    color: #d32f2f;
+    font-family: 'Bukvica', sans-serif;
+    font-size: 8rem; /* Large but manageable */
+    letter-spacing: 2px;
+    font-weight: 400;
+    vertical-align: baseline;
 }
 
-/* Optional: subtle fade for background image on mobile */
-@media (max-width: 599px) {
-    body {
-        background-size: 90% auto;
-        background-position: center bottom;
-    }
+.rest-letters {
+    font-family: 'Svetozar', 'Cormorant Garamond', sans-serif;
+    font-size: 4rem; /* Significantly smaller than the first letter */
+    letter-spacing: 1px;
+    font-weight: 400;
+    vertical-align: baseline;
 }
 
-/* Example for centering the invitation vertically */
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main-content {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Decorative divider */
-.divider {
-    width: 80px;
-    height: 2px;
-    background: #e0c3a3;
-    margin: 24px auto 32px auto;
-    border-radius: 2px;
-    opacity: 0.7;
-}
-
-/* Example for the invitation text */
 .invite-text {
-    font-size: 1.2rem;
-    color: #444;
+    font-family: 'VelesByDmitryElit', 'Cormorant Garamond', sans-serif;
+    font-size: 1.0rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    vertical-align: baseline;
+}
+
+.small-i {
+    font-size: 0.5em;
+    vertical-align: middle;
+}
+
+.invite-date {
+    font-family: 'BalkaraFreeCondensed', serif;
+    font-size: 1.5rem;
+    color: #000000;
     margin-bottom: 32px;
     line-height: 1.7;
+    text-align: center;
 }
 
-@media (max-width: 400px) {
-    .invite-container {
-        padding: 32px 6px 24px 6px;
-    }
-    .couple-names {
-        font-size: 2rem;
-    }
-}
-    .schedule-section {
+/* === SCHEDULE SECTION === */
+.schedule-section {
     min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('ramka.png') center center/contain no-repeat;
+    background: none;
     background-color: rgba(255,255,255,0.85);
     position: relative;
     margin-top: 0;
-    padding: 80px 0;
+    padding-top: 0;
+    padding-bottom: 80px;
+    overflow: hidden;
 }
 .schedule-content {
-    /* background: rgba(255,255,255,0.85); */
-    /* box-shadow: 0 4px 24px rgba(0,0,0,0.06); */
     border-radius: 24px;
     padding: 48px 32px;
     max-width: 700px;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    background: none;
 }
 .schedule-content h2 {
     font-family: 'Dobrozrachniy', serif;
     font-size: 2.2rem;
     margin-bottom: 18px;
     color: #2d2d2d;
+    text-align: left;
 }
 .schedule-content ul {
     list-style: none;
@@ -159,21 +243,105 @@ body {
 .schedule-content li {
     margin-bottom: 14px;
 }
+
+/* === RESPONSIVE === */
+@media (max-width: 400px) {
+    .invite-container {
+        padding: 32px 6px 24px 6px;
+    }
+    .couple-names {
+        font-size: 2rem;
+    }
+    .invite-date {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    body {
+        background-size: 90% auto;
+        background-position: center bottom;
+    }
+    .invite-bg {
+        background-image: url('side.png');
+        background-position: right center;
+        background-repeat: repeat-y;
+        background-size: 50%;
+        min-height: 100vh;
+    }
+    .invite-date, .invite-text {
+        text-align: left;
+    }
+}
+@media (min-width: 601px) {
+    .invite-container {
+        padding: 80px 48px 60px 48px;
+    }
+    .invite-date, .invite-text {
+        font-size: 4.5rem;
+    }
+}
+@media (min-width: 900px) {
+    .couple-names {
+        font-size: 2.5rem;
+    }
+    .invite-container {
+        max-width: 700px;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        padding: 100px 48px 100px 48px;
+    }
+}
+
+/* === FONT TESTER PANEL === */
+.font-tester {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-family: sans-serif;
+    color: #333;
+}
+.font-tester h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.font-tester-group {
+    margin-bottom: 15px;
+}
+.font-tester-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.font-tester-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
     </style>
 </head>
 <body>
     <div class="invite-bg">
         <div class="main-content">
             <div class="invite-container">
-                <div class="couple-names">Иван и Ксения</div>
-                <div class="divider"></div>
-                <div class="invite-text">
-                    You are cordially invited to celebrate our wedding.<br>
-                    <strong>Date:</strong> June 15, 2024<br>
-                    <strong>Location:</strong> Rosewood Gardens, 123 Main St.<br>
-                    <br>
-                    We look forward to sharing this special day with you!
-                </div>
+                <div class="couple-names">
+                  <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
+                   <span class="name-part rest-letters" id="and-word">и</span>
+                    <span class="name-part"><span class="first-letter">К</span><span class="rest-letters">сения</span></span>
+                  </div>
+                 <div class="invite-date">
+                     <span>04.07.2026</span>
+                     <br>
+                     <span class="place">Минск</span>
+                  </div>
+                 <div class="invite-text"> С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
             </div>
         </div>
     </div>
@@ -188,5 +356,60 @@ body {
             </ul>
         </div>
     </div>
+
+    <!-- FONT TESTER PANEL -->
+    <div class="font-tester">
+        <h3>Font Combinations</h3>
+        <div class="font-tester-group">
+            <label for="first-letter-font">First Letter Font</label>
+            <select id="first-letter-font" class="font-select" data-target=".first-letter"></select>
+        </div>
+        <div class="font-tester-group">
+            <label for="rest-letters-font">Rest of Name Font</label>
+            <select id="rest-letters-font" class="font-select" data-target=".rest-letters"></select>
+        </div>
+        <div class="font-tester-group">
+            <label for="and-word-font">"And" Word Font</label>
+            <select id="and-word-font" class="font-select" data-target="#and-word"></select>
+        </div>
+        <div class="font-tester-group">
+            <label for="date-font">Date Font</label>
+            <select id="date-font" class="font-select" data-target=".invite-date"></select>
+        </div>
+        <div class="font-tester-group">
+            <label for="text-font">Invite Text Font</label>
+            <select id="text-font" class="font-select" data-target=".invite-text"></select>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fonts = [
+        'Svetozar', 'bukvica', 'Vitez', 'Mefodievich', 'Rurintania', 'Zing', 
+        'WonderGardene', 'SaintAmoure', 'RotondaC', 'Rotonda', 'Dobrozrachniy', 
+        'CormorantInfant-Light', 'TD Elena 2021', 'velesbydmitryelit', 
+        'BalkaraFreeCondensed', 'Cormorant Garamond' // Add web-safe fallback
+    ];
+
+    const fontSelects = document.querySelectorAll('.font-select');
+    
+    fontSelects.forEach(select => {
+        fonts.forEach(font => {
+            const option = document.createElement('option');
+            option.value = font;
+            option.textContent = font;
+            select.appendChild(option);
+        });
+
+        select.addEventListener('change', function() {
+            const targetSelector = this.dataset.target;
+            const targetElements = document.querySelectorAll(targetSelector);
+            targetElements.forEach(el => {
+                el.style.fontFamily = this.value;
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
