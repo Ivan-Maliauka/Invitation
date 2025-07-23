@@ -1,279 +1,562 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
     <style>
-/* === FONT FACES === */
-@font-face {
-    font-family: 'BalkaraFreeCondensed';
-    src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+        /* === FONT FACES === */
+        @font-face {
+            font-family: 'BalkaraFreeCondensed';
+            src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-/* === BASE STYLES === */
-html, body {
-    height: 100%;
-}
-body {
-    background: #fff;
-    min-height: 100vh;
-    font-family: 'BalkaraFreeCondensed', serif;
-    color: #222;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
+        /* === BASE STYLES === */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: #fff;
+            min-height: 100vh;
+            font-family: 'BalkaraFreeCondensed', serif;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+        }
 
-.main-content {
-    width: 100%;
-}
+        /* === COMMON STYLES === */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'BalkaraFreeCondensed', serif;
+        }
 
-/* === INVITE SECTION === */
-.invite-bg {
-    background: #fff;
-    background-image: url('side.png'), url('side-x.png');
-    background-position: right center, left center;
-    background-repeat: repeat-y, repeat-y;
-    background-size: 30%, 30%;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
+        /* === INVITE SECTION === */
+        .invite-bg {
+            background-image: url('side.png'), url('side-x.png');
+            background-position: right center, left center;
+            background-repeat: repeat-y, repeat-y;
+            background-size: 30%, 30%;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-.invite-container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 60px 24px 40px 24px;
-    border-radius: 24px;
-    text-align: left;
-    position: relative;
-    z-index: 2;
-    margin-top: 7vh;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    background: none;
-}
+        .invite-container {
+            max-width: 700px;
+            margin: 7vh auto 0;
+            padding: 60px 24px 0;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
 
-.couple-names {
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-    display: block;
-    color: #000000;
-    text-align: center; /* Center all names */
-    line-height: 1.5; /* Add this to control vertical spacing */
-}
+        .couple-names {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            display: block;
+            color: #000000;
+            text-align: center;
+            line-height: 1.5;
+        }
 
-.name-part {
-    display: block;
-    width: 100%;
-    margin: 0;
-    line-height: 1.3; /* Pulls lines closer together */
-}
+        .name-part {
+            display: block;
+            width: 100%;
+            margin: 0;
+            line-height: 1.3;
+        }
 
-.first-letter {
-    color: #d32f2f;
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 8rem; /* Large but manageable */
-    letter-spacing: 1px;
-    font-weight: 400;
-    vertical-align: baseline;
-}
+        .first-letter {
+            color: #d32f2f;
+            font-size: 8rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+            vertical-align: baseline;
+        }
 
-.rest-letters {
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 4rem; /* Significantly smaller than the first letter */
-    letter-spacing: 1px;
-    font-weight: 400;
-    vertical-align: baseline;
-}
+        .rest-letters {
+            font-size: 4rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+            vertical-align: baseline;
+        }
 
-.and-word {
-    font-size: 3rem;
-}
+        .and-word {
+            font-size: 3rem;
+        }
 
-.invite-text {
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    font-weight: 300;
-    vertical-align: baseline;
-}
+        .invite-text {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+            vertical-align: baseline;
+        }
 
-.invite-date {
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 1.5rem;
-    color: #000000;
-    margin-bottom: 32px;
-    line-height: 1.7;
-    text-align: center;
-}
+        .invite-date {
+            font-size: 1.5rem;
+            color: #000000;
+            margin-bottom: 32px;
+            line-height: 1.7;
+            text-align: center;
+        }
 
-/* === SCHEDULE SECTION === */
-.schedule-section {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    background-color: rgba(255,255,255,0.85);
-    position: relative;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 80px;
-    overflow: hidden;
-}
-.schedule-content {
-    border-radius: 24px;
-    padding: 48px 32px;
-    max-width: 700px;
-    width: 100%;
-    text-align: left;
-    position: relative;
-    z-index: 2;
-    background: none;
-}
-.schedule-content h2 {
-    font-family: 'BalkaraFreeCondensed', serif;
-    font-size: 2.2rem;
-    margin-bottom: 18px;
-    color: #2d2d2d;
-    text-align: left;
-}
-.schedule-content ul {
-    font-family: 'BalkaraFreeCondensed', serif;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1.15rem;
-    color: #444;
-}
-.schedule-content li {
-    margin-bottom: 14px;
-}
+        /* === DRESSCODE SECTION === */
+        .dresscode-section {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff url('side-x.png') left center repeat-y;
+            background-size: 30%;
+            padding: 40px 0;
+        }
+        
+        .dresscode-content {
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .dresscode-content h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #a00000;
+        }
+        
+        .dresscode-content p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        
+        .dresscode-colors {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 10px;
+        }
+        
+        .dresscode-color {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
 
-/* === RESPONSIVE === */
-@media (max-width: 400px) {
-    .invite-container {
-        padding: 32px 6px 24px 6px;
-    }
-    .couple-names {
-        font-size: 2rem;
-    }
-    .invite-date {
-        font-size: 2rem;
-    }
-}
-@media (max-width: 600px) {
-    body {
-        background-size: 90% auto;
-        background-position: center bottom;
-    }
-    .invite-bg {
-        background-image: url('side.png');
-        background-position: right center;
-        background-repeat: repeat-y;
-        background-size: 70%;
-        min-height: 100vh;
-    }
-    .invite-date, .invite-text {
-        text-align: left;
-        margin-left: 50px;
-        margin-right: 110px;
-    }
-    .couple-names {
-        text-align: left;
-        margin-left: 50px;
-    }
-    .first-letter {
-    font-size: 5rem; /* Large but manageable */
-    letter-spacing: 1px;
-    font-weight: 400;
-    vertical-align: baseline;
-}
+        /* === RSVP SECTION === */
+        .rsvp-section {
+            padding: 60px 0 80px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .rsvp-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .rsvp-title {
+            font-size: 2rem;
+            color: #a00000;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .rsvp-description {
+            font-size: 1.1rem;
+            color: #a00000;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .form-container {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'BalkaraFreeCondensed', serif;
+            margin-bottom: 2px;
+        }
+        
+        .submit-btn {
+            background: #a00000;
+            color: #fff;
+            border: none;
+            padding: 12px 36px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'BalkaraFreeCondensed', serif;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #d32f2f;
+        }
+        
+        .form-message {
+            padding: 12px;
+            margin: 16px 0 0;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
 
-.rest-letters {
-    font-size: 3rem; /* Significantly smaller than the first letter */
-    letter-spacing: 1px;
-    font-weight: 400;
-    vertical-align: baseline;
-}
+        /* === WEDDING DETAILS === */
+        .wedding-details {
+            background-color: #fff8f3;
+            background-image: url('upside.png');
+            background-repeat: repeat-x;
+            background-position: left, right;
+            background-size: auto 100%;
+            padding: 60px 20px;
+            color: #111;
+        }
 
-.and-word {
-    font-size: 1.8rem;
-}
-}
-@media (min-width: 601px) {
-    .invite-container {
-        padding: 80px 48px 60px 48px;
-    }
-    .invite-date, .invite-text {
-        font-size: 2.0rem;
-        text-align: center;
-    }
-}
-@media (min-width: 900px) {
-    .couple-names {
-        font-size: 2.5rem;
-    }
-    .invite-container {
-        max-width: 700px;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-        padding: 100px 48px 100px 48px;
-    }
-}
+        .details-wrapper {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
 
-/* === FONT TESTER PANEL === */
-.font-tester {
-    display: none;
-}
+        .info-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .note {
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* === RESPONSIVE STYLES === */
+        /* === GLOBAL BOX-SIZING === */
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        @media (max-width: 400px) {
+            .invite-container {
+                padding: 24px 4vw 16px;
+            }
+            .couple-names {
+                font-size: 1.5rem;
+                text-align: center;
+                margin-left: 0;
+            }
+            .invite-date {
+                font-size: 1.2rem;
+                text-align: center;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .invite-text {
+                text-align: center;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-size: 90% auto;
+                background-position: center bottom;
+                overflow-x: hidden;
+            }
+            .invite-bg {
+                background-image: url('side.png');
+                background-position: right center;
+                background-repeat: repeat-y;
+                background-size: 70%;
+                min-height: 70vh;
+            }
+            .invite-date, .invite-text {
+                text-align: center;
+                margin-left: 0;
+                margin-right: 0;
+                font-size: 1.1rem;
+            }
+            .couple-names {
+                text-align: center;
+                margin-left: 0;
+            }
+            .first-letter {
+                font-size: 3.2rem;
+            }
+            .rest-letters {
+                font-size: 1.7rem;
+            }
+            .and-word {
+                font-size: 1.2rem;
+            }
+            .invite-container {
+                padding: 24px 2vw 16px;
+                max-width: 98vw;
+                width: 100%;
+            }
+            .dresscode-content {
+                padding: 12px 2vw 8px;
+                max-width: 98vw;
+            }
+            .dresscode-colors {
+                gap: 8px;
+            }
+            .dresscode-color {
+                width: 40px;
+                height: 40px;
+            }
+            .form-container {
+                padding: 8px 2vw;
+                max-width: 98vw;
+            }
+            .rsvp-container {
+                max-width: 98vw;
+                width: 100%;
+            }
+            .wedding-details {
+                padding: 32px 2vw;
+            }
+            .details-wrapper {
+                max-width: 98vw;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .invite-container {
+                padding: 80px 48px 60px;
+            }
+            
+            .invite-date, .invite-text {
+                font-size: 2.0rem;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .couple-names {
+                font-size: 2.5rem;
+            }
+            
+            .invite-container {
+                max-width: 700px;
+                margin: 10vh auto;
+                padding: 100px 48px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- INVITE SECTION -->
     <div class="invite-bg">
         <div class="main-content">
             <div class="invite-container">
                 <div class="couple-names">
-                  <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
-                   <span class="name-part rest-letters and-word" id="and-word">и</span>
+                    <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
+                    <span class="name-part rest-letters and-word" id="and-word">и</span>
                     <span class="name-part"><span class="first-letter">К</span><span class="rest-letters">сения</span></span>
-                  </div>
-                 <div class="invite-date">
-                     <span>04.07.2026</span>
-                     <br>
-                     <span class="place">Минск</span>
-                  </div>
-                 <div class="invite-text"> С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
+                </div>
+                <div class="invite-date">
+                    <span>04.07.2026</span>
+                    <br>
+                    <span class="place">Минск</span>
+                </div>
+                <div class="invite-text">С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
             </div>
         </div>
     </div>
-    <div class="schedule-section">
-        <div class="schedule-content">
-            <h2>Свадебная программа</h2>
-            <ul>
-                <li><strong>Сбор гостей:</strong> 15 июня 2024, 15:00</li>
-                <li><strong>Место:</strong> Rosewood Gardens, 123 Main St.</li>
-                <li><strong>Церемония:</strong> 16:00</li>
-                <li><strong>Праздничный ужин:</strong> 17:00</li>
-            </ul>
+
+    <!-- DRESSCODE SECTION -->
+    <div class="dresscode-section">
+        <div class="dresscode-content">
+            <h2>Дресс-код</h2>
+            <p>Пожалуйста, поддержите атмосферу праздника, выбрав наряды в одной из наших палитр:</p>
+            <div class="dresscode-colors">
+                <span class="dresscode-color" style="background: #f3eac2;"></span>
+                <span class="dresscode-color" style="background: #6fa3ef;"></span>
+                <span class="dresscode-color" style="background: #c40000;"></span>
+                <span class="dresscode-color" style="background: #888888;"></span>
+                <span class="dresscode-color" style="background: #2a0000;"></span>
+            </div>
         </div>
     </div>
 
-    <!-- FONT TESTER PANEL -->
-    <div class="font-tester">
-        <!-- removed font tester panel -->
-    </div>
+    <!-- WEDDING DETAILS SECTION -->
+    <section class="wedding-details">
+        <div class="details-wrapper">
+            <h2>Где и когда?</h2>
+            <ul class="info-list">
+                <li><strong>Дата:</strong> 4 июля 2026 года</li>
+                <li><strong>Время:</strong> 15:00</li>
+                <li><strong>Место:</strong> Ресторан «Золотой Колос», г. Минск, ул. Победителей, 100</li>
+            </ul>
+            <p class="note">Мы будем счастливы видеть вас в этот важный для нас день!</p>
+        </div>
+    </section>
 
-<script>
-</script>
+    <!-- RSVP SECTION -->
+    <section class="rsvp-section">
+        <div class="rsvp-container">
+            <h2 class="rsvp-title">Подтвердите участие</h2>
+            <div class="form-container">
+                <form id="rsvp-form">
+                    <div class="rsvp-description">Пожалуйста, ответьте до 1 июня 2026 года</div>
+                    <div class="form-group">
+                        <label for="name">Ваше Имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Вы Придете? *</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Пожалуйста, выберите</option>
+                            <option value="Да, с удовольствием!">Да, с удовольствием!</option>
+                            <option value="К сожалению, не смогу">К сожалению, не смогу</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Количество гостей (включая вас) *</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Выберите количество</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+ (уточните в комментариях)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dietary">Особые требования к питанию</label>
+                        <input type="text" id="dietary" name="dietary" placeholder="Вегетарианское, аллергии и т.д.">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ваши пожелания</label>
+                        <textarea id="message" name="message" placeholder="Напишите ваши пожелания..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Подтвердить участие</button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // RSVP FORM SUBMISSION
+        const rsvpForm = document.getElementById('rsvp-form');
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitBtn = document.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+                
+                const formData = {
+                    name: document.getElementById('name').value,
+                    attendance: document.getElementById('attendance').value,
+                    guests: document.getElementById('guests').value,
+                    dietary: document.getElementById('dietary').value,
+                    message: document.getElementById('message').value,
+                    timestamp: new Date().toLocaleString('ru-RU')
+                };
+                
+                fetch('https://script.google.com/macros/s/AKfycbxUQHMhUnY7EPZbhifRMH790SGCqeCGOyJ6jvZF-lKR9wCAk6d2izENBs75h49DNo9BxQ/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    redirect: 'follow',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    let result = false;
+                    try {
+                        result = JSON.parse(data).result === 'success';
+                    } catch (e) {
+                        result = false;
+                    }
+                    
+                    if (result) {
+                        showMessage('Спасибо! Ваш ответ успешно отправлен.', 'success');
+                        rsvpForm.reset();
+                    } else {
+                        showMessage('Произошла ошибка при отправке.', 'error');
+                    }
+                })
+                .catch(error => {
+                    showMessage('Ошибка сети: ' + error.message, 'error');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Подтвердить участие';
+                });
+            });
+            
+            function showMessage(text, type) {
+                const messageDiv = document.getElementById('form-message');
+                messageDiv.textContent = text;
+                messageDiv.className = 'form-message ' + type;
+                messageDiv.style.display = 'block';
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+    </script>
 </body>
 </html>
