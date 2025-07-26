@@ -38,19 +38,32 @@
 
         /* === INVITE SECTION === */
         .invite-bg {
-            background-image: url('side.png'), url('side-x.png');
-            background-position: right center, left center;
-            background-repeat: repeat-y, repeat-y;
-            background-size: 30%, 30%;
+            background-image: url('side.png'), url('side-x.png'), url('linen-canvas.jpg');
+            background-position: right center, left center, center center;
+            background-repeat: repeat-y, repeat-y, repeat;
+            background-size: 30%, 30%, cover;
             width: 100%;
             min-height: 100vh;
-            display: flex;
             align-items: center;
+            position: relative;
         }
-
+        /* Add a pseudo-element for the fade effect */
+    .invite-bg::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 250px; /* Adjust this value to control the fade height */
+        background: linear-gradient(to bottom, 
+            rgba(255,255,255,0) 0%, 
+            rgba(255,255,255,0.7) 70%, 
+            rgba(255,255,255,1) 100%);
+        pointer-events: none;
+    }
         .invite-container {
             max-width: 700px;
-            margin: 7vh auto 0;
+            margin: 3vh auto 0;
             padding: 60px 24px 0;
             text-align: left;
             position: relative;
@@ -255,13 +268,15 @@
 
         /* === WEDDING DETAILS === */
         .wedding-details {
-            background-color: #fff8f3;
-            background-image: url('upside.png');
-            background-repeat: repeat-x;
-            background-position: left, right;
-            background-size: auto 100%;
-            padding: 60px 20px;
-            color: #111;
+            background-image: url('linen-canvas.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            transition: background 1.5s ease-in-out;
+            position: relative;
+            margin-top: -50px;
+            z-index: 2;
+            min-height: 60vh;
         }
 
         .details-wrapper {
@@ -325,17 +340,37 @@
                 background-position: right center;
                 background-repeat: repeat-y;
                 background-size: 70%;
+                transform: none;
                 min-height: 70vh;
             }
+
+            .invite-bg::before {
+                top: 0;
+                position: absolute;
+                content: '';
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('linen-canvas.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                /* Rotate the image (choose one) */
+                transform: rotate(180deg);  /* 90° rotation */
+                /* transform: rotate(180deg); */  /* 180° rotation */
+                z-index: -1; /* Places it behind the content */
+            }
+
             .invite-date, .invite-text {
-                text-align: center;
-                margin-left: 0;
-                margin-right: 0;
-                font-size: 1.1rem;
+                text-align: left;
+                margin-left: 20px;
+                margin-top: 40px;
+                margin-right: 80px;
+                font-size: 0.8rem;
             }
             .couple-names {
-                text-align: center;
-                margin-left: 0;
+                text-align: left;
+                margin-left: 20px;
             }
             .first-letter {
                 font-size: 3.2rem;
@@ -350,6 +385,7 @@
                 padding: 24px 2vw 16px;
                 max-width: 98vw;
                 width: 100%;
+                text-align: left;
             }
             .dresscode-content {
                 padding: 12px 2vw 8px;
@@ -392,12 +428,16 @@
         @media (min-width: 900px) {
             .couple-names {
                 font-size: 2.5rem;
+                text-align: center;
             }
-            
             .invite-container {
                 max-width: 700px;
                 margin: 10vh auto;
-                padding: 100px 48px;
+                padding: 0px 48px;
+                text-align: center;
+            }
+            .invite-date, .invite-text {
+                text-align: center;
             }
         }
     </style>
@@ -405,7 +445,6 @@
 <body>
     <!-- INVITE SECTION -->
     <div class="invite-bg">
-        <div class="main-content">
             <div class="invite-container">
                 <div class="couple-names">
                     <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
@@ -419,7 +458,6 @@
                 </div>
                 <div class="invite-text">С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
             </div>
-        </div>
     </div>
     
     <!-- WEDDING DETAILS SECTION -->
