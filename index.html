@@ -20,9 +20,15 @@
             padding: 0;
         }
         
+        html {
+            min-height: 100%;
+        }
+        
         body {
-            background: #fff;
-            min-height: 100vh;
+            background: #fff url('linen-canvas.jpg') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100%;
             font-family: 'BalkaraFreeCondensed', serif;
             color: #222;
             display: flex;
@@ -36,31 +42,40 @@
             font-family: 'BalkaraFreeCondensed', serif;
         }
 
+        /* === SIDE IMAGES === */
+        .side-image-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30%;
+            height: 100%;
+            background: url('side-x.png') left center repeat-y;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .side-image-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30%;
+            height: 200%;
+            background: url('side.png') right center repeat-y;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
         /* === INVITE SECTION === */
         .invite-bg {
-            background-image: url('side.png'), url('side-x.png'), url('linen-canvas.jpg');
-            background-position: right center, left center, center center;
-            background-repeat: repeat-y, repeat-y, repeat;
-            background-size: 30%, 30%, cover;
+            background: none;
             width: 100%;
-            min-height: 100vh;
+            min-height: 90vh;
             align-items: center;
             position: relative;
         }
-        /* Add a pseudo-element for the fade effect */
-    .invite-bg::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 250px; /* Adjust this value to control the fade height */
-        background: linear-gradient(to bottom, 
-            rgba(255,255,255,0) 0%, 
-            rgba(255,255,255,0.7) 70%, 
-            rgba(255,255,255,1) 100%);
-        pointer-events: none;
-    }
+      
         .invite-container {
             max-width: 700px;
             margin: 3vh auto 0;
@@ -128,8 +143,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #fff url('side-x.png') left center repeat-y;
-            background-size: 30%;
+            background: none;
             padding: 40px 0;
         }
         
@@ -154,23 +168,34 @@
         .dresscode-colors {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: -15px; /* Negative gap for overlap */
             margin-top: 10px;
+            align-items: center;
         }
         
         .dresscode-color {
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            border: 2px solid #e0e0e0;
+            border: 2px;
             display: inline-block;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+            margin: 0 -8px; /* Negative margin for overlap */
+            position: relative;
+            z-index: 1;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .dresscode-color:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            z-index: 2;
         }
 
         /* === RSVP SECTION === */
         .rsvp-section {
             padding: 60px 0 80px;
-            background: #fff;
+            background: none;
             display: flex;
             justify-content: center;
         }
@@ -268,20 +293,20 @@
 
         /* === WEDDING DETAILS === */
         .wedding-details {
-            background-image: url('linen-canvas.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            transition: background 1.5s ease-in-out;
             position: relative;
-            margin-top: -50px;
-            z-index: 2;
             min-height: 60vh;
         }
+
+        .wedding-details-bg {
+            background: none;
+            z-index: -1;
+        }
+
 
         .details-wrapper {
             max-width: 700px;
             margin: auto;
+            margin-top: 180px;
             text-align: center;
         }
 
@@ -330,35 +355,13 @@
         }
 
         @media (max-width: 600px) {
-            body {
-                background-size: 90% auto;
-                background-position: center bottom;
-                overflow-x: hidden;
+            .side-image-left {
+                display: none; /* Hide left image on mobile */
             }
-            .invite-bg {
-                background-image: url('side.png');
-                background-position: right center;
-                background-repeat: repeat-y;
-                background-size: 70%;
-                transform: none;
-                min-height: 70vh;
-            }
-
-            .invite-bg::before {
-                top: 0;
-                position: absolute;
-                content: '';
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url('linen-canvas.jpg');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                /* Rotate the image (choose one) */
-                transform: rotate(180deg);  /* 90° rotation */
-                /* transform: rotate(180deg); */  /* 180° rotation */
-                z-index: -1; /* Places it behind the content */
+            
+            .side-image-right {
+                width: 50%;
+                height: 70%;
             }
 
             .invite-date, .invite-text {
@@ -366,17 +369,29 @@
                 margin-left: 20px;
                 margin-top: 40px;
                 margin-right: 80px;
-                font-size: 0.8rem;
             }
+
+            .invite-date {
+                font-size: 2.0rem;            
+            }
+
+            .invite-text {
+                font-size: 1.3rem;    
+            } 
+            
+            .invite-bg {
+                min-height: 60vh;
+            }
+
             .couple-names {
                 text-align: left;
                 margin-left: 20px;
             }
             .first-letter {
-                font-size: 3.2rem;
+                font-size: 4.2rem;
             }
             .rest-letters {
-                font-size: 1.7rem;
+                font-size: 2.7rem;
             }
             .and-word {
                 font-size: 1.2rem;
@@ -392,11 +407,11 @@
                 max-width: 98vw;
             }
             .dresscode-colors {
-                gap: 8px;
+                gap: 0px;
             }
             .dresscode-color {
-                width: 40px;
-                height: 40px;
+                width: 80px;
+                height: 80px;
             }
             .form-container {
                 padding: 8px 2vw;
@@ -439,10 +454,27 @@
             .invite-date, .invite-text {
                 text-align: center;
             }
+            
+            .dresscode-color {
+                width: 180px; /* Twice the current 90px */
+                height: 180px; /* Twice the current 90px */
+                border-radius: 50%; /* Ensure perfect circle */
+                border: 2px;
+                box-shadow: 0 0 16px rgba(0,0,0,0.3);
+            }
+            
+            .dresscode-color:hover {
+                box-shadow: 0 0 28px rgba(0,0,0,0.4);
+            }
         }
     </style>
 </head>
 <body>
+       
+    <!-- SIDE IMAGES -->
+    <div class="side-image-left"></div>
+    <div class="side-image-right"></div>
+    
     <!-- INVITE SECTION -->
     <div class="invite-bg">
             <div class="invite-container">
@@ -459,9 +491,10 @@
                 <div class="invite-text">С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
             </div>
     </div>
+
     
     <!-- WEDDING DETAILS SECTION -->
-    <section class="wedding-details">
+    <section class="wedding-details wedding-details-bg">
         <div class="details-wrapper">
             <h2>Где и когда?</h2>
             <ul class="info-list">
@@ -472,21 +505,6 @@
             <p class="note">Мы будем счастливы видеть вас в этот важный для нас день!</p>
         </div>
     </section>
-
-    <!-- DRESSCODE SECTION -->
-    <div class="dresscode-section">
-        <div class="dresscode-content">
-            <h2>Дресс-код</h2>
-            <p>Пожалуйста, поддержите атмосферу праздника, выбрав наряды в одной из наших палитр:</p>
-            <div class="dresscode-colors">
-                <span class="dresscode-color" style="background: #f3eac2;"></span>
-                <span class="dresscode-color" style="background: #6fa3ef;"></span>
-                <span class="dresscode-color" style="background: #c40000;"></span>
-                <span class="dresscode-color" style="background: #888888;"></span>
-                <span class="dresscode-color" style="background: #2a0000;"></span>
-            </div>
-        </div>
-    </div>
 
     <!-- RSVP SECTION -->
     <section class="rsvp-section">
@@ -532,6 +550,22 @@
             </div>
         </div>
     </section>
+
+
+    <!-- DRESSCODE SECTION -->
+    <div class="dresscode-section">
+        <div class="dresscode-content">
+            <h2>Дресс-код</h2>
+            <p>Пожалуйста, поддержите атмосферу праздника, выбрав наряды в одной из наших палитр:</p>
+            <div class="dresscode-colors">
+                <span class="dresscode-color" style="background: #f3eac2;"></span>
+                <span class="dresscode-color" style="background: #6fa3ef;"></span>
+                <span class="dresscode-color" style="background: #c40000;"></span>
+                <span class="dresscode-color" style="background: #888888;"></span>
+                <span class="dresscode-color" style="background: #2a0000;"></span>
+            </div>
+        </div>
+    </div>
 
     <!-- FONTS TEST SECTION -->
     <section class="fonts-test-section" style="background: #f9f9f9; padding: 40px 0;">
@@ -598,6 +632,20 @@
     </section>
 
     <script>
+        // Parallax effect for side images
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const leftImage = document.querySelector('.side-image-left');
+            const rightImage = document.querySelector('.side-image-right');
+            
+            // Move images at different speed than scroll (parallax effect)
+            const speed = 0.5; // Adjust this value to control movement speed
+            const yPos = -(scrolled * speed);
+            
+            leftImage.style.transform = `translateY(${yPos}px)`;
+            rightImage.style.transform = `translateY(${yPos}px)`;
+        });
+        
         // RSVP FORM SUBMISSION
         const rsvpForm = document.getElementById('rsvp-form');
         if (rsvpForm) {
