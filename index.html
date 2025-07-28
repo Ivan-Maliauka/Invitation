@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* === FONT FACES === */
         @font-face {
             font-family: 'BalkaraFreeCondensed';
             src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Vitez';
+            src: url('fonts/Vitez.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -60,7 +69,7 @@
             right: 0;
             top: 0;
             width: 30%;
-            height: 200%;
+            height: 100%;
             background: url('side.png') right center repeat-y;
             background-size: contain;
             z-index: 1;
@@ -69,9 +78,9 @@
         
         /* === INVITE SECTION === */
         .invite-bg {
-            background: none;
+            background: #fff;
             width: 100%;
-            min-height: 90vh;
+            min-height: 100%;
             align-items: center;
             position: relative;
         }
@@ -83,6 +92,16 @@
             text-align: left;
             position: relative;
             z-index: 2;
+        }
+
+        .wedding-text {
+            color: #000000;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            vertical-align: baseline;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
         .couple-names {
@@ -123,14 +142,15 @@
         }
 
         .invite-text {
-            font-size: 0.9rem;
+            font-size: 1.5rem;
             letter-spacing: 1px;
-            font-weight: 300;
+            font-weight: 400;
             vertical-align: baseline;
+            color: #000000;
         }
 
         .invite-date {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: #000000;
             margin-bottom: 32px;
             line-height: 1.7;
@@ -360,8 +380,17 @@
             }
             
             .side-image-right {
-                width: 50%;
-                height: 70%;
+                width: 60%;
+                height: 100%;
+            }
+            
+            .wedding-text {
+                font-family: 'Cormorant Garamon', serif;
+                font-size: 1.0rem;
+                margin-right: 80px;
+                margin-top: 80px;
+                text-align: left;
+                margin-left: 20px;
             }
 
             .invite-date, .invite-text {
@@ -369,6 +398,7 @@
                 margin-left: 20px;
                 margin-top: 40px;
                 margin-right: 80px;
+                margin-bottom: 20px;
             }
 
             .invite-date {
@@ -376,13 +406,10 @@
             }
 
             .invite-text {
-                font-size: 1.3rem;    
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.0rem;    
             } 
             
-            .invite-bg {
-                min-height: 60vh;
-            }
-
             .couple-names {
                 text-align: left;
                 margin-left: 20px;
@@ -425,7 +452,7 @@
                 padding: 32px 2vw;
             }
             .details-wrapper {
-                max-width: 98vw;
+                max-width: 100%;
             }
         }
 
@@ -478,6 +505,7 @@
     <!-- INVITE SECTION -->
     <div class="invite-bg">
             <div class="invite-container">
+                <div class="invite-text">ПРЯМО ПОЙДЕШЬ - НА СВАДЬБУ ПОПАДЕШЬ</div>
                 <div class="couple-names">
                     <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
                     <span class="name-part rest-letters and-word" id="and-word">и</span>
@@ -488,7 +516,7 @@
                     <br>
                     <span class="place">Минск</span>
                 </div>
-                <div class="invite-text">С радостью приглашаем вас разделить с нами особенный момент нашей жизни</div>
+                <div class="invite-text">С РАДОСТЬЮ ПРИГЛАШАЕМ ВАС ПОВЕСЕЛИТЬСЯ С НАМИ В ЭТОТ ПРЕКРАСНЫЙ ДЕНЬ</div>
             </div>
     </div>
 
