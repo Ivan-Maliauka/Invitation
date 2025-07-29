@@ -60,7 +60,7 @@
             height: 100%;
             background: url('side-x.png') left center repeat-y;
             background-size: contain;
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
         
@@ -72,26 +72,31 @@
             height: 100%;
             background: url('side.png') right center repeat-y;
             background-size: contain;
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
         
         /* === INVITE SECTION === */
         .invite-bg {
-            background: #fff;
+            position: relative;
             width: 100%;
             min-height: 100%;
             align-items: center;
-            position: relative;
         }
-      
+        .invite-bg-fade {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.85);
+            z-index: 0;
+            clip-path: inset(0 0 0 0);
+            opacity: 1;
+            pointer-events: none;
+        }
         .invite-container {
-            max-width: 700px;
-            margin: 3vh auto 0;
-            padding: 60px 24px 0;
-            text-align: left;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .wedding-text {
@@ -504,6 +509,7 @@
     
     <!-- INVITE SECTION -->
     <div class="invite-bg">
+        <div class="invite-bg-fade"></div>
             <div class="invite-container">
                 <div class="invite-text">ПРЯМО ПОЙДЕШЬ - НА СВАДЬБУ ПОПАДЕШЬ</div>
                 <div class="couple-names">
@@ -681,7 +687,7 @@
                 e.preventDefault();
                 const submitBtn = document.querySelector('.submit-btn');
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Отправка...';
+                submitBtn.textContent = 'Отправка...';  
                 
                 const formData = {
                     name: document.getElementById('name').value,
@@ -735,6 +741,25 @@
                 }, 5000);
             }
         }
+        // === INVITE SECTION FADE OUT ON SCROLL ===
+        const inviteBgFade = document.querySelector('.invite-bg-fade');
+        window.addEventListener('scroll', function() {
+            if (!inviteBgFade) return;
+            // Move bottom edge up and fade out as you scroll, in sync with parallax
+            const maxScroll = 500;
+            const scrollY = window.scrollY || window.pageYOffset;
+            const speed = 0.5;
+            let bottomInset = Math.min(scrollY * speed, maxScroll * speed);
+            let opacity = 1 - Math.min(scrollY / maxScroll, 1);
+            // If scrolled past maxScroll, make it fully invisible and clipped
+            if (scrollY >= maxScroll) {
+                inviteBgFade.style.opacity = '0';
+                inviteBgFade.style.clipPath = 'inset(0 0 100% 0)';
+            } else {
+                inviteBgFade.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
+                inviteBgFade.style.opacity = opacity;
+            }
+        });
     </script>
 </body>
 </html>
