@@ -34,9 +34,6 @@
         }
         
         body {
-            background: #fff url('linen-canvas.jpg') center center no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
             min-height: 100%;
             font-family: 'BalkaraFreeCondensed', serif;
             color: #222;
@@ -88,7 +85,7 @@
             top: 0; left: 0; right: 0; bottom: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,1);
             z-index: 0;
             clip-path: inset(0 0 0 0);
             opacity: 1;
@@ -97,16 +94,6 @@
         .invite-container {
             position: relative;
             z-index: 3;
-        }
-
-        .wedding-text {
-            color: #000000;
-            font-weight: 400;
-            letter-spacing: 1px;
-            font-size: 1.5rem;
-            vertical-align: baseline;
-            margin-bottom: 50px;
-            text-align: center;
         }
 
         .couple-names {
@@ -143,10 +130,12 @@
         }
 
         .and-word {
+            margin-top: 30px;
             font-size: 3rem;
         }
 
         .invite-text {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
             letter-spacing: 1px;
             font-weight: 400;
@@ -234,7 +223,6 @@
         
         .rsvp-title {
             font-size: 2rem;
-            color: #a00000;
             margin-bottom: 10px;
             font-weight: 600;
             letter-spacing: 1px;
@@ -242,7 +230,6 @@
         
         .rsvp-description {
             font-size: 1.1rem;
-            color: #a00000;
             margin-bottom: 20px;
             font-style: italic;
         }
@@ -388,15 +375,6 @@
                 width: 60%;
                 height: 100%;
             }
-            
-            .wedding-text {
-                font-family: 'Cormorant Garamon', serif;
-                font-size: 1.0rem;
-                margin-right: 80px;
-                margin-top: 80px;
-                text-align: left;
-                margin-left: 20px;
-            }
 
             .invite-date, .invite-text {
                 text-align: left;
@@ -411,7 +389,6 @@
             }
 
             .invite-text {
-                font-family: 'Cormorant Garamond', serif;
                 font-size: 1.0rem;    
             } 
             
@@ -426,6 +403,7 @@
                 font-size: 2.7rem;
             }
             .and-word {
+                margin-top: 10px;
                 font-size: 1.2rem;
             }
             .invite-container {
@@ -511,7 +489,7 @@
     <div class="invite-bg">
         <div class="invite-bg-fade"></div>
             <div class="invite-container">
-                <div class="invite-text">ПРЯМО ПОЙДЕШЬ - НА СВАДЬБУ ПОПАДЕШЬ</div>
+                <div class="invite-text">ПРИГЛАШАЕМ ВАС НА НАШУ СВАДЬБУ</div>
                 <div class="couple-names">
                     <span class="name-part"><span class="first-letter">И</span><span class="rest-letters">ван</span></span>
                     <span class="name-part rest-letters and-word" id="and-word">и</span>
@@ -522,7 +500,7 @@
                     <br>
                     <span class="place">Минск</span>
                 </div>
-                <div class="invite-text">С РАДОСТЬЮ ПРИГЛАШАЕМ ВАС ПОВЕСЕЛИТЬСЯ С НАМИ В ЭТОТ ПРЕКРАСНЫЙ ДЕНЬ</div>
+                <div class="invite-text">НАДЕВАЙТЕ ЛУЧШИЕ САРАФАНЫ И РУБАХИ, ПРИХОДИТЕ С ДОБРЫМ СЕРДЦЕМ И ВЕСЁЛЫМ НАСТРОЕНИЕМ!</div>
             </div>
     </div>
 
@@ -666,7 +644,7 @@
     </section>
 
     <script>
-        // Parallax effect for side images
+        // Parallax effect and fade for side images
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const leftImage = document.querySelector('.side-image-left');
@@ -676,8 +654,19 @@
             const speed = 0.5; // Adjust this value to control movement speed
             const yPos = -(scrolled * speed);
             
+            // Fade effect - start fading after 100px scroll, fully transparent by 400px
+            const fadeStart = 100;
+            const fadeEnd = 400;
+            let opacity = 1;
+            
+            if (scrolled > fadeStart) {
+                opacity = 1 - Math.min((scrolled - fadeStart) / (fadeEnd - fadeStart), 1);
+            }
+            
             leftImage.style.transform = `translateY(${yPos}px)`;
+            leftImage.style.opacity = opacity;
             rightImage.style.transform = `translateY(${yPos}px)`;
+            rightImage.style.opacity = opacity;
         });
         
         // RSVP FORM SUBMISSION
@@ -741,25 +730,7 @@
                 }, 5000);
             }
         }
-        // === INVITE SECTION FADE OUT ON SCROLL ===
-        const inviteBgFade = document.querySelector('.invite-bg-fade');
-        window.addEventListener('scroll', function() {
-            if (!inviteBgFade) return;
-            // Move bottom edge up and fade out as you scroll, in sync with parallax
-            const maxScroll = 500;
-            const scrollY = window.scrollY || window.pageYOffset;
-            const speed = 0.5;
-            let bottomInset = Math.min(scrollY * speed, maxScroll * speed);
-            let opacity = 1 - Math.min(scrollY / maxScroll, 1);
-            // If scrolled past maxScroll, make it fully invisible and clipped
-            if (scrollY >= maxScroll) {
-                inviteBgFade.style.opacity = '0';
-                inviteBgFade.style.clipPath = 'inset(0 0 100% 0)';
-            } else {
-                inviteBgFade.style.clipPath = `inset(0 0 ${bottomInset}px 0)`;
-                inviteBgFade.style.opacity = opacity;
-            }
-        });
+
     </script>
 </body>
 </html>
