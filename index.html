@@ -92,6 +92,7 @@
             pointer-events: none;
         }
         .invite-container {
+            height: 100%;
             position: relative;
             padding-bottom: 5px;
             z-index: 3;
@@ -152,63 +153,35 @@
             text-align: center;
         }
 
-        /* === DRESSCODE SECTION === */
-        .dresscode-section {
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
-            padding: 40px 0;
-        }
-        
-        .dresscode-content {
-            padding: 32px;
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .dresscode-content h2 {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: #a00000;
+        /* === WEDDING DETAILS === */
+        .wedding-details {
+            position: relative;
+            min-height: 60vh;
         }
 
-        .red-color {
-            color: #a00000;
+        .wedding-details-bg {
+            background: none;
+            z-index: -1;
         }
-        
-        .dresscode-content p {
-            font-size: 1.1rem;
-            margin-bottom: 18px;
-        }
-        
-        .dresscode-colors {
-            display: flex;
-            justify-content: center;
-            gap: -15px; /* Negative gap for overlap */
+
+        .details-wrapper {
+            max-width: 700px;
+            margin: auto;
             margin-top: 10px;
-            align-items: center;
+            text-align: center;
         }
-        
-        .dresscode-color {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 0px;
-            display: inline-block;
-            box-shadow: 0 0 12px rgba(0,0,0,0.3);
-            margin: 0 -8px; /* Negative margin for overlap */
-            position: relative;
-            z-index: 1;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+            line-height: 2;
         }
-        
-        .dresscode-color:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-            z-index: 2;
+
+        .note {
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
         }
 
         /* === RSVP SECTION === */
@@ -343,36 +316,63 @@
             display: block;
         }
 
-        /* === WEDDING DETAILS === */
-        .wedding-details {
-            position: relative;
-            min-height: 60vh;
-        }
-
-        .wedding-details-bg {
+        /* === DRESSCODE SECTION === */
+        .dresscode-section {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: none;
-            z-index: -1;
+            padding: 40px 0;
         }
-
-
-        .details-wrapper {
-            max-width: 700px;
-            margin: auto;
-            margin-top: 10px;
+        
+        .dresscode-content {
+            padding: 32px;
+            max-width: 850px;
+            width: 100%;
             text-align: center;
         }
-
-        .info-list {
-            list-style: none;
-            padding: 0;
-            font-size: 1.2rem;
-            line-height: 2;
+        
+        .dresscode-content h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #a00000;
         }
 
-        .note {
-            margin-top: 30px;
-            font-style: italic;
+        .red-color {
+            color: #a00000;
+        }
+        
+        .dresscode-content p {
             font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        
+        .dresscode-colors {
+            display: flex;
+            justify-content: center;
+            gap: -15px; /* Negative gap for overlap */
+            margin-top: 10px;
+            align-items: center;
+        }
+        
+        .dresscode-color {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 0px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+            margin: 0 -8px; /* Negative margin for overlap */
+            position: relative;
+            z-index: 1;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .dresscode-color:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            z-index: 2;
         }
 
         /* === RESPONSIVE STYLES === */
@@ -570,7 +570,7 @@
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label>Вы Придете? *</label>
+                        <label>Вы Придёте? *</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" id="attendance" name="attendance" value="Да, с удовольствием!" required>
@@ -583,13 +583,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="guest_names">Имена гостей, если Вы придете не один</label>
+                        <label for="guest_names">Имена гостей, если Вы придёте не один</label>
                         <input type="text" id="guest_names" name="guest_names" placeholder="Укажите имена всех гостей через запятую">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="dietary">Особые требования к питанию</label>
-                        <input type="text" id="dietary" name="dietary" placeholder="Вегетарианское, аллергии и т.д.">
-                    </div> -->
                     <div class="form-group">
                         <label for="message">Ваши пожелания</label>
                         <textarea id="message" name="message" placeholder="Напишите ваши пожелания..."></textarea>
@@ -606,7 +602,7 @@
     <div class="dresscode-section">
         <div class="dresscode-content">
             <h2>Дресс-код</h2>
-            <p>Пожалуйста, поддержите атмосферу праздника, выбрав наряды в одной из наших палитр:</p>
+            <p>Мы хотим создать особенную атмосферу на нашем празднике, поэтому просим Вас учесть дресс-код при выборе наряда.</p>
             <div class="dresscode-colors">
                 <span class="dresscode-color" style="background: #f3eac2;"></span>
                 <span class="dresscode-color" style="background: #6fa3ef;"></span>
@@ -616,70 +612,6 @@
             </div>
         </div>
     </div>
-
-    <!-- FONTS TEST SECTION -->
-    <section class="fonts-test-section" style="background: #f9f9f9; padding: 40px 0;">
-        <div style="max-width: 900px; margin: auto; padding: 0 16px;">
-            <h2 style="text-align:center; color:#a00000;">Тест всех шрифтов</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <div style="font-family: 'BalkaraFreeCondensed', serif; font-size: 2rem;">BalkaraFreeCondensed<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'bukvica'; src: url('fonts/bukvica.ttf') format('truetype'); }</style>
-                    <div style="font-family: 'bukvica', serif; font-size: 2rem;">bukvica<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'Vitez'; src: url('fonts/Vitez.ttf') format('truetype'); }</style>
-                    <div style="font-family: 'Vitez', serif; font-size: 2rem;">Vitez<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'Mefodievich'; src: url('fonts/Mefodievich.otf') format('opentype'); }</style>
-                    <div style="font-family: 'Mefodievich', serif; font-size: 2rem;">Mefodievich<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'ofont_ru_Rurintania'; src: url('fonts/ofont.ru_Rurintania.ttf') format('truetype'); }</style>
-                    <div style="font-family: 'ofont_ru_Rurintania', serif; font-size: 2rem;">ofont.ru_Rurintania<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'Zing'; src: url('fonts/Zing.woff') format('woff'); }</style>
-                    <div style="font-family: 'Zing', serif; font-size: 2rem;">Zing<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'WonderGardene'; src: url('fonts/WonderGardene.woff') format('woff'); }</style>
-                    <div style="font-family: 'WonderGardene', serif; font-size: 2rem;">WonderGardene<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'SaintAmoure'; src: url('fonts/SaintAmoure.woff') format('woff'); }</style>
-                    <div style="font-family: 'SaintAmoure', serif; font-size: 2rem;">SaintAmoure<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'RotondaC'; src: url('fonts/RotondaC.woff') format('woff'); }</style>
-                    <div style="font-family: 'RotondaC', serif; font-size: 2rem;">RotondaC<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'Rotonda'; src: url('fonts/Rotonda.woff') format('woff'); }</style>
-                    <div style="font-family: 'Rotonda', serif; font-size: 2rem;">Rotonda<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'Dobrozrachniy'; src: url('fonts/Dobrozrachniy.woff') format('woff'); }</style>
-                    <div style="font-family: 'Dobrozrachniy', serif; font-size: 2rem;">Dobrozrachniy<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'CormorantInfant-Light'; src: url('fonts/CormorantInfant-Light.woff') format('woff'); }</style>
-                    <div style="font-family: 'CormorantInfant-Light', serif; font-size: 2rem;">CormorantInfant-Light<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'TD Elena 2021'; src: url('fonts/TD Elena 2021.otf') format('opentype'); }</style>
-                    <div style="font-family: 'TD Elena 2021', serif; font-size: 2rem;">TD Elena 2021<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-                <div style="flex: 1 1 300px; min-width: 260px;">
-                    <style>@font-face { font-family: 'velesbydmitryelit'; src: url('fonts/velesbydmitryelit.otf') format('opentype'); }</style>
-                    <div style="font-family: 'velesbydmitryelit', serif; font-size: 2rem;">velesbydmitryelit<br>Съешь ещё этих мягких французских булок, да выпей чаю.</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <script>
         // Parallax effect and fade for side images
