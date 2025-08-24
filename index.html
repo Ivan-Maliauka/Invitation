@@ -180,8 +180,7 @@
 
         .note {
             margin-top: 30px;
-            font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
         }
 
         /* === RSVP SECTION === */
@@ -383,7 +382,39 @@
         *, *:before, *:after {
             box-sizing: inherit;
         }
+
+                /* === WISHES SECTION === */
+        .wishes-section {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            padding: 40px 0;
+        }
         
+        .wishes-content {
+            padding: 32px;
+            max-width: 850px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .wishes-content h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        
+        .wishes-content p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        
+        .wishes-content .highlight {
+            color: #a00000;
+            font-weight: bold;
+        }
+         
         /* === FOOTER STYLES === */
         .footer {
             background: #f9f9f9;
@@ -510,6 +541,11 @@
             }
             .details-wrapper {
                 max-width: 100%;
+            }
+
+             .wishes-content {
+                padding: 12px 2vw 8px;
+                max-width: 98vw;
             }
 
              .footer h3 {
@@ -660,14 +696,21 @@
         </div>
     </div>
 
+    <!-- WISHES SECTION -->
+    <div class="wishes-section">
+        <div class="wishes-content">
+            <h2 class="red-color">Пожелания</h2>
+            <p>Дорогие гости, мы будем рады денежным подаркам больше, чем цветам, так как вы сможете использовать их в нашем безумном меню.</p>
+        </div>
+    </div>
+
     <!-- Footer with Contact Information -->
     <footer class="footer">
         <div class="footer-content">
-            <h3>Иван и Ксения</h3>
-            <p>Если у вас возникли вопросы, свяжитесь с нами:</p>
+            <h3>Контакты</h3>
             <div class="contact-info">
-                <p><strong>Иван:</strong> +375 29 255-69-98</p>
-                <p><strong>Ксения:</strong> +7 902 049-96-59</p>
+                <p><strong> +375 29 255-69-98</strong></p>
+                <p><strong> +7 902 049-96-59</strong></p>
             </div>
         </div>
     </footer>
