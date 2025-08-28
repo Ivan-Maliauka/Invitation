@@ -76,3 +76,21 @@
     }
 
 }
+
+@media (min-width: 900px) {
+
+    .dresscode-color {
+        width: 180px;
+        /* Twice the current 90px */
+        height: 180px;
+        /* Twice the current 90px */
+        border-radius: 50%;
+        /* Ensure perfect circle */
+        border: 2px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .dresscode-color:hover {
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.4);
+    }
+}
