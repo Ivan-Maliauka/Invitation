@@ -1,0 +1,78 @@
+/* === DRESSCODE SECTION === */
+.dresscode-section {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    padding: 40px 0;
+}
+
+.dresscode-content {
+    padding: 32px;
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+}
+
+.dresscode-content h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: #a00000;
+}
+
+.red-color {
+    color: #a00000;
+}
+
+.dresscode-content p {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+}
+
+.dresscode-colors {
+    display: flex;
+    justify-content: center;
+    gap: -15px;
+    /* Negative gap for overlap */
+    margin-top: 10px;
+    align-items: center;
+}
+
+.dresscode-color {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 0px;
+    display: inline-block;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    margin: 0 -8px;
+    /* Negative margin for overlap */
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dresscode-color:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+
+    .dresscode-content {
+        padding: 12px 2vw 8px;
+        max-width: 98vw;
+    }
+
+    .dresscode-colors {
+        gap: 0px;
+    }
+
+    .dresscode-color {
+        width: 80px;
+        height: 80px;
+    }
+
+}

@@ -1,0 +1,39 @@
+/* === WISHES SECTION === */
+.wishes-section {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    padding: 40px 0;
+}
+
+.wishes-content {
+    padding: 32px;
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+}
+
+.wishes-content h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.wishes-content p {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+}
+
+.wishes-content .highlight {
+    color: #a00000;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    .wishes-content {
+        padding: 12px 2vw 8px;
+        max-width: 98vw;
+    }
+}

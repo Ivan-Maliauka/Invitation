@@ -1,29 +1,47 @@
 /* === WEDDING DETAILS === */
-        .wedding-details {
-            position: relative;
-            min-height: 60vh;
-        }
+.wedding-details {
+    position: relative;
+    min-height: 60vh;
+}
 
-        .wedding-details-bg {
-            background: none;
-            z-index: -1;
-        }
+.wedding-details-bg {
+    background: none;
+    z-index: -1;
+}
 
-        .details-wrapper {
-            max-width: 700px;
-            margin: auto;
-            margin-top: 10px;
-            text-align: center;
-        }
+.details-wrapper {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
 
-        .info-list {
-            list-style: none;
-            padding: 0;
-            font-size: 1.2rem;
-            line-height: 2;
-        }
+.info-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    line-height: 2;
+}
 
-        .note {
-            margin-top: 30px;
-            font-size: 1.4rem;
-        }
+.note {
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 600px) {
+
+    .wedding-details {
+        padding: 32px 2vw;
+    }
+
+    .details-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 900px) {
+
+    .wedding-details {
+        margin-top: 120px;
+    }
+}

@@ -1,105 +1,220 @@
+/* === SIDE IMAGES === */
+.side-image-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: url('../side-x.png') left center repeat-y;
+    background-size: contain;
+    z-index: 2;
+    pointer-events: none;
+}
 
-         /* === SIDE IMAGES === */
-        .side-image-left {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 30%;
-            height: 100%;
-            background: url('../side-x.png') left center repeat-y;
-            background-size: contain;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .side-image-right {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 30%;
-            height: 100%;
-            background: url('../side.png') right center repeat-y;
-            background-size: contain;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        /* === INVITE SECTION === */
-        .invite-bg {
-            position: relative;
-            width: 100%;
-            min-height: 100%;
-            align-items: center;
-        }
-        .invite-bg-fade {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,1);
-            z-index: 0;
-            clip-path: inset(0 0 0 0);
-            opacity: 1;
-            pointer-events: none;
-        }
-        .invite-container {
-            height: 100%;
-            position: relative;
-            padding-bottom: 10px;
-            z-index: 3;
-        }
+.side-image-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: url('../side.png') right center repeat-y;
+    background-size: contain;
+    z-index: 2;
+    pointer-events: none;
+}
 
-        .couple-names {
-            font-size: 2rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 18px;
-            display: block;
-            color: #000000;
-            text-align: center;
-            line-height: 1.5;
-        }
+/* === INVITE SECTION === */
+.invite-bg {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    align-items: center;
+}
 
-        .name-part {
-            display: block;
-            width: 100%;
-            margin: 0;
-            line-height: 1.3;
-        }
+.invite-bg-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    z-index: 0;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    pointer-events: none;
+}
 
-        .first-letter {
-            color: #a00000;
-            font-size: 8rem;
-            letter-spacing: 1px;
-            font-weight: 400;
-            vertical-align: baseline;
-        }
+.invite-container {
+    height: 100%;
+    position: relative;
+    padding-bottom: 10px;
+    z-index: 3;
+}
 
-        .rest-letters {
-            font-size: 4rem;
-            letter-spacing: 1px;
-            font-weight: 400;
-            vertical-align: baseline;
-        }
+.couple-names {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    display: block;
+    color: #000000;
+    text-align: center;
+    line-height: 1.5;
+}
 
-        .and-word {
-            margin-top: 30px;
-            font-size: 3rem;
-        }
+.name-part {
+    display: block;
+    width: 100%;
+    margin: 0;
+    line-height: 1.3;
+}
 
-        .invite-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            font-weight: 400;
-            vertical-align: baseline;
-            color: #000000;
-        }
+.first-letter {
+    color: #a00000;
+    font-size: 8rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    vertical-align: baseline;
+}
 
-        .invite-date {
-            font-size: 2.5rem;
-            color: #000000;
-            margin-bottom: 32px;
-            line-height: 1.7;
-            text-align: center;
-        }
+.rest-letters {
+    font-size: 4rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    vertical-align: baseline;
+}
+
+.and-word {
+    margin-top: 30px;
+    font-size: 3rem;
+}
+
+.invite-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    vertical-align: baseline;
+    color: #000000;
+}
+
+.invite-date {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+@media (max-width: 400px) {
+    .invite-container {
+        padding: 24px 4vw 16px;
+    }
+
+    .couple-names {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .invite-date {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .invite-text {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .side-image-left {
+        display: none;
+        /* Hide left image on mobile */
+    }
+
+    .side-image-right {
+        width: 60%;
+        height: 100%;
+    }
+
+    .invite-date,
+    .invite-text {
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 40px;
+        margin-right: 80px;
+        margin-bottom: 20px;
+    }
+
+    .invite-date {
+        font-size: 2.0rem;
+    }
+
+    .invite-text {
+        font-size: 1.0rem;
+    }
+
+    .couple-names {
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .first-letter {
+        font-size: 4.2rem;
+    }
+
+    .rest-letters {
+        font-size: 2.7rem;
+    }
+
+    .and-word {
+        margin-top: 10px;
+        font-size: 1.2rem;
+    }
+
+    .invite-container {
+        padding: 24px 2vw 16px;
+        max-width: 98vw;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+@media (min-width: 601px) {
+    .invite-container {
+        padding: 80px 48px 60px;
+    }
+
+    .invite-date,
+    .invite-text {
+        font-size: 2.0rem;
+        text-align: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .couple-names {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .invite-container {
+        max-width: 700px;
+        margin: 1vh auto;
+        margin-top: 5vh;
+        padding: 0px 48px;
+        text-align: center;
+    }
+
+    .invite-date,
+    .invite-text {
+        text-align: center;
+    }
+}

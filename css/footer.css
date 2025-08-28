@@ -1,0 +1,45 @@
+ /* === FOOTER STYLES === */
+ .footer {
+     background: #f9f9f9;
+     border-top: 1px solid #eaeaea;
+     padding: 30px 0;
+     text-align: center;
+     margin-top: 40px;
+ }
+
+ .footer-content {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 0 20px;
+ }
+
+ .footer h3 {
+     color: #a00000;
+     font-size: 1.8rem;
+     margin-bottom: 10px;
+ }
+
+ .footer p {
+     margin-bottom: 10px;
+     font-size: 1rem;
+ }
+
+ .contact-info {
+     margin-top: 15px;
+ }
+
+ .contact-info p {
+     margin: 5px 0;
+ }
+
+ @media (max-width: 600px) {
+
+     .footer h3 {
+         font-size: 1.5rem;
+     }
+
+     .footer p,
+     .contact-info p {
+         font-size: 0.9rem;
+     }
+ }
