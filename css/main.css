@@ -1,0 +1,40 @@
+/* === FONT FACES === */
+        @font-face {
+            font-family: 'BalkaraFreeCondensed';
+            src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Vitez';
+            src: url('fonts/Vitez.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* === BASE STYLES === */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            min-height: 100%;
+        }
+        
+        body {
+            min-height: 100%;
+            font-family: 'BalkaraFreeCondensed', serif;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === COMMON STYLES === */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'BalkaraFreeCondensed', serif;
+        }
