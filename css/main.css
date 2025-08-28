@@ -1,14 +1,14 @@
 /* === FONT FACES === */
         @font-face {
             font-family: 'BalkaraFreeCondensed';
-            src: url('fonts/BalkaraFreeCondensed.ttf') format('truetype');
+            src: url('../fonts/BalkaraFreeCondensed.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'Vitez';
-            src: url('fonts/Vitez.ttf') format('truetype');
+            src: url('../fonts/Vitez.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }

@@ -6,7 +6,7 @@
             top: 0;
             width: 30%;
             height: 100%;
-            background: url('side-x.png') left center repeat-y;
+            background: url('../side-x.png') left center repeat-y;
             background-size: contain;
             z-index: 2;
             pointer-events: none;
@@ -18,7 +18,7 @@
             top: 0;
             width: 30%;
             height: 100%;
-            background: url('side.png') right center repeat-y;
+            background: url('../side.png') right center repeat-y;
             background-size: contain;
             z-index: 2;
             pointer-events: none;
